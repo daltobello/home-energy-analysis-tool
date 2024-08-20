@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name="rules-engine"
+version="0.0.1"
+requires-python=">=3.11.3"
+dependencies = [
+    "pydantic"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "mypy",
+    "openpyxl",
+    "pydantic",
+    "pydocstyle",
+    "pytest",
+    "types-openpyxl",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+disallow_any_generics = true
+disallow_incomplete_defs = true
+
+[tool.pydocstyle]
+select = "D207,D208,D3,D417"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+data = ["*.csv"]
